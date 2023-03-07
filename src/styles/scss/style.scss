@@ -1,0 +1,91 @@
+@import './globals.scss';
+
+
+.main{
+    position: relative;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+    width: 600px;
+    height: 300px;
+
+    margin: 3rem auto;
+    border-radius: 12px;
+    text-align: center;
+    padding: 1rem;
+    
+    & h1{
+        margin-top: 1rem;
+    }
+
+    & .field{
+        padding: .8rem;
+        width: 15rem;
+    
+        outline: none;
+        border: none;
+        border-radius: 5px;
+    
+        background-color: #121221;
+        color: white;
+    
+        margin-top: 1rem;
+    }
+
+    & .shorten, .copy{
+        padding: .5rem;
+        width: 10rem;
+        
+        cursor: pointer;
+        
+        border-radius: 8px;
+        border: none;
+    
+        margin-top: 2rem;
+        
+        font-weight: 500;
+    }
+
+    & .shorten{
+        color: white;
+        background-color: #000000;
+
+        transition: ease-in-out .8s;
+
+        &:hover{
+            background-color: #4285fa;        
+        }
+    }
+
+    & .copy{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        color: black;
+
+        &:active{
+            background-color: #000000;
+            color: white;
+        }
+    }
+
+    .error{
+        border: 1px solid rgb(241, 13, 13);
+    }
+
+    & .container_social{
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        margin-left: -50px;
+    }
+
+    & .a{
+        color: #000000;
+    }
+}
+
+@media(max-width: 700px){
+    .main{
+        width: 400px;
+    }
+}
+
