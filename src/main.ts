@@ -1,3 +1,4 @@
+import config from './config';
 const buttonShorten = document.getElementById('shorten') as HTMLButtonElement;
 const butttonCopy = document.getElementById('copy') as HTMLButtonElement;
 const shorten = ()=>{
@@ -10,7 +11,7 @@ const shorten = ()=>{
     const requestHeaders = 
     {
         'Content-Type': 'application/json',
-        'apikey': 'b60aee4020d04dd1a9acb7dd2ee00797',
+        'apikey': config.apikey,
     }
 
 const request = async () : Promise<void> => {
@@ -36,19 +37,22 @@ const request = async () : Promise<void> => {
     request();
 }
 
-const copy = () :void => {
+const copy = async (): Promise <void> => {
     const inputUrl = document.getElementById('url') as HTMLInputElement;
-   if(navigator.clipboard.writeText(inputUrl.value))
-   {
+    try{
+        await navigator.clipboard.writeText(inputUrl.value);
         butttonCopy.textContent = 'copied';
+        setTimeout(() => 
+        {
+            butttonCopy.textContent = 'copy';  
+        }, 1000);
+    }
+    catch (error){
+        console.error(error);
+    }
    }
-   setTimeout(() :void => {
-    butttonCopy.textContent = 'copy';
-   },1000);
-}
 buttonShorten.addEventListener('click', shorten)
 butttonCopy.addEventListener('click', copy);
-
 
 
 
